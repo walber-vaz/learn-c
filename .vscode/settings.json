@@ -10,7 +10,5 @@
     "/usr/local/include",
     "/usr/include/x86_64-linux-gnu"
   ],
-  "editor.formatOnSave": true,
-  "editor.formatOnPaste": true,
   "editor.tabSize": 2,
 }
