@@ -1,0 +1,16 @@
+{
+  "C_Cpp.autocompleteAddParentheses": true,
+  "C_Cpp.clang_format_fallbackStyle": "Visual Studio",
+  "C_Cpp.clang_format_sortIncludes": true,
+  "C_Cpp.clang_format_style": "LLVM",
+  "C_Cpp.default.intelliSenseMode": "linux-clang-x64",
+  "C_Cpp.default.includePath": [
+    "${workspaceFolder}/**",
+    "/usr/include",
+    "/usr/local/include",
+    "/usr/include/x86_64-linux-gnu"
+  ],
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": true,
+  "editor.tabSize": 2,
+}
