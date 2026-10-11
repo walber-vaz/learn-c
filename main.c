@@ -1,6 +1,11 @@
 #include <stdio.h>
 
 int main() {
-  printf("Olá, mundo!");
+  /*
+    Comentario em blocos
+  */
+  printf("Olá, mundo!\n");
+
+  // Comentario em linha
   return 0;
 }
