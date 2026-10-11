@@ -1,0 +1,100 @@
+# clang-format para C23 (requer clang-format >= 21 para `Language: C`)
+# Documentação: https://clang.llvm.org/docs/ClangFormatStyleOptions.html
+---
+Language: C
+BasedOnStyle: LLVM
+Standard: Latest
+
+# --- Indentação e largura -----------------------------------------------------
+IndentWidth: 4
+ContinuationIndentWidth: 4
+TabWidth: 4
+UseTab: Never
+ColumnLimit: 100
+IndentCaseLabels: true
+IndentGotoLabels: false
+IndentPPDirectives: AfterHash
+PPIndentWidth: 2
+IndentWrappedFunctionNames: false
+
+# --- Chaves -------------------------------------------------------------------
+BreakBeforeBraces: Allman # chave sempre em linha própria (funções, if, for, struct...)
+InsertBraces: true # sempre usar { } em if/else/for/while (evita bugs tipo "goto fail")
+RemoveSemicolon: false
+
+# --- Linhas curtas: nada em uma linha só (legibilidade e diffs limpos) -------
+AllowShortBlocksOnASingleLine: Never
+AllowShortCaseLabelsOnASingleLine: false
+AllowShortFunctionsOnASingleLine: None
+AllowShortIfStatementsOnASingleLine: Never
+AllowShortLoopsOnASingleLine: false
+AllowShortEnumsOnASingleLine: false
+
+# --- Ponteiros e qualificadores ----------------------------------------------
+# Convenção C: `int *p` (o * pertence ao declarador, ex.: `int *a, b;`)
+PointerAlignment: Right
+DerivePointerAlignment: false
+QualifierAlignment: Left # `const int x` em vez de `int const x`
+
+# --- Espaços ------------------------------------------------------------------
+SpaceAfterCStyleCast: false
+SpaceBeforeParens: ControlStatements
+SpaceBeforeAssignmentOperators: true
+SpacesInSquareBrackets: false
+SpacesBeforeTrailingComments: 2
+Cpp11BracedListStyle: true # `{1, 2, 3}` / `= {}` (C23)
+
+# --- Alinhamentos -------------------------------------------------------------
+AlignAfterOpenBracket: Align
+AlignOperands: Align
+AlignEscapedNewlines: Left
+AlignTrailingComments:
+  Kind: Always
+  OverEmptyLines: 1
+AlignConsecutiveMacros:
+  Enabled: true
+  AcrossEmptyLines: false
+  AcrossComments: true
+AlignConsecutiveBitFields:
+  Enabled: true
+AlignConsecutiveAssignments: None
+AlignConsecutiveDeclarations: None
+
+# --- Quebras ------------------------------------------------------------------
+BinPackArguments: true
+BinPackParameters: BinPack
+AllowAllArgumentsOnNextLine: true
+AllowAllParametersOfDeclarationOnNextLine: true
+BreakBeforeBinaryOperators: NonAssignment
+BreakBeforeTernaryOperators: true
+BreakStringLiterals: true
+BreakAfterAttributes: Leave # [[nodiscard]], [[maybe_unused]] etc. (C23)
+PenaltyReturnTypeOnItsOwnLine: 200
+
+# --- Linhas em branco ---------------------------------------------------------
+MaxEmptyLinesToKeep: 1
+KeepEmptyLines:
+  AtEndOfFile: false
+  AtStartOfBlock: false
+  AtStartOfFile: false
+SeparateDefinitionBlocks: Always
+InsertNewlineAtEOF: true
+LineEnding: LF
+
+# --- Comentários --------------------------------------------------------------
+ReflowComments: Always
+FixNamespaceComments: false
+
+# --- Includes: <sistema> primeiro, depois "locais", ordenados ----------------
+SortIncludes:
+  Enabled: true
+  IgnoreCase: false
+IncludeBlocks: Regroup
+IncludeCategories:
+  - Regex: '^<[a-z_0-9]+\.h>$' # biblioteca padrão C (<stdio.h>, <stdckdint.h>...)
+    Priority: 1
+  - Regex: '^<.*>$' # outras bibliotecas do sistema/terceiros
+    Priority: 2
+  - Regex: '^".*"$' # headers do projeto
+    Priority: 3
+...
