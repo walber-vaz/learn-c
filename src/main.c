@@ -2,31 +2,30 @@
 
 #include <stdio.h>
 
-Cadastro obter_cadastro(Cadastro *c)
+int fatorial(int n)
 {
-    printf("Digite o nome: ");
-    fgets(c->name, 150, stdin);
-    fflush(stdin);
-
-    printf("Digite a idade e nível: ");
-    scanf("%d %c", &c->age, &c->level);
-
-    return *c;
+    return (n <= 1) ? 1 : n * fatorial(n - 1);
 }
 
-void print_cadastro(Cadastro *c)
+int fibonacci(int n)
 {
-    printf("Name: %s\n", c->name);
-    printf("Age: %d\n", c->age);
-    printf("Level: %c\n", c->level);
+    if (n == 0)
+    {
+        return 0;
+    }
+    return (n == 1) ? 1 : fibonacci(n - 1) + fibonacci(n - 2);
 }
 
 int main(void)
 {
-    Cadastro c;
-
-    obter_cadastro(&c);
-    print_cadastro(&c);
+    int num = 13;
+    printf("O fatorial de %d é %d\n", num, fatorial(num));
+    printf("O fibonacci ate a posição %dº é: ", num);
+    for (int i = 0; i < num; ++i)
+    {
+        printf(" %d", fibonacci(i));
+    }
+    printf("\n");
 
     return 0;
 }
