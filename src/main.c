@@ -2,18 +2,23 @@
 
 #include <stdio.h>
 
-int double_number(int num)
+int double_number(int *num)
 {
-    return num * 2;
+    return (*num) * 2;
 }
 
-// Ponteiro de função
-int (*pdouble_number)(int) = &double_number;
-
-int main(void)
+int main(int argc, char **argv)
 {
-    int y = 9;
-    printf("O dobro de %d é %d\n", y, pdouble_number(y));
+    if (argc != 2)
+    {
+        printf("Usage: %s <number>\n", argv[0]);
+        return 1;
+    }
+
+    for (int i = 0; i < argc; i++)
+    {
+        printf("argv[%d]: %s\n", i, argv[i]);
+    }
 
     return 0;
 }
