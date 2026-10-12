@@ -1,12 +1,11 @@
 #ifndef MAIN_H
 #define MAIN_H
 
-enum Logs
+typedef struct
 {
-    SUCCESS = 0,
-    ERROR = 1,
-    INFO = 241,
-    WARNING = 130,
-};
+    int array[4];
+    char *text;
+    long id;
+} BigData;
 
 #endif
