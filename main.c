@@ -1,23 +1,20 @@
-#include <stdbool.h>
+#include "main.h"
+
 #include <stdio.h>
 
-int main()
+int main(void)
 {
-    /*
-      Comentario em blocos
-    */
-    signed int x = 36;
-    signed char a = 'A';
-    float pi = 3.14f;
-    bool check = false;
-    double d = 9.36456f;
-
-    printf("O valor da variavel x é: %d\n", x);
-    printf("O valor da variavel a é: %c\n", a);
-    printf("O valor da variavel pi é: %.2f\n", pi);
-    printf("O valor da variavel d é: %.10lf\n", d);
-    printf("O valor da variavel check é: %d\n", check);
-
-    // Comentario em linha
+    printf("O valor de soma é: %d\n", soma(1, 2));
+    printf("A frase é: %s\n", echo_str("Hello, World!"));
     return 0;
+}
+
+int soma(int x, int y)
+{
+    return x + y;
+}
+
+char *echo_str(char *str)
+{
+    return str;
 }

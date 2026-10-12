@@ -1,0 +1,41 @@
+{
+  // Documentação: https://go.microsoft.com/fwlink/?linkid=733558
+  "version": "2.0.0",
+  "tasks": [
+    {
+      // Recompila do zero em modo debug (evita objetos release misturados com debug)
+      "label": "make: debug",
+      "type": "shell",
+      "command": "make",
+      "args": [
+        "rebuild",
+        "BUILD=debug"
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": [
+        "$gcc"
+      ]
+    },
+    {
+      "label": "make: format",
+      "type": "shell",
+      "command": "make",
+      "args": [
+        "format"
+      ],
+      "problemMatcher": []
+    },
+    {
+      "label": "make: clean",
+      "type": "shell",
+      "command": "make",
+      "args": [
+        "clean"
+      ],
+      "problemMatcher": []
+    }
+  ]
+}
