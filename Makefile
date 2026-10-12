@@ -17,12 +17,12 @@ MKDIR   = mkdir -p
 CLANG_FORMAT ?= clang-format
 
 # --- Diretórios e arquivos ---------------------------------------------------
-SRC_DIR   := .
+SRC_DIR   := src
 BUILD_DIR := obj
 BIN_DIR   := bin
 TARGET    := $(BIN_DIR)/main
 
-# Descobre automaticamente todos os .c do diretório atual
+# Descobre automaticamente todos os .c de src/
 SRCS := $(wildcard $(SRC_DIR)/*.c)
 OBJS := $(patsubst $(SRC_DIR)/%.c,$(BUILD_DIR)/%.o,$(SRCS))
 DEPS := $(OBJS:.o=.d)
