@@ -2,30 +2,13 @@
 
 #include <stdio.h>
 
-int fatorial(int n)
-{
-    return (n <= 1) ? 1 : n * fatorial(n - 1);
-}
-
-int fibonacci(int n)
-{
-    if (n == 0)
-    {
-        return 0;
-    }
-    return (n == 1) ? 1 : fibonacci(n - 1) + fibonacci(n - 2);
-}
-
 int main(void)
 {
-    int num = 13;
-    printf("O fatorial de %d é %d\n", num, fatorial(num));
-    printf("O fibonacci ate a posição %dº é: ", num);
-    for (int i = 0; i < num; ++i)
-    {
-        printf(" %d", fibonacci(i));
-    }
-    printf("\n");
+    enum Logs i = INFO, w = WARNING, e = ERROR, s = SUCCESS;
+    printf("INFO: %d\n", i);
+    printf("WARNING: %d\n", w);
+    printf("ERROR: %d\n", e);
+    printf("SUCCESS: %d\n", s);
 
-    return 0;
+    return s;
 }

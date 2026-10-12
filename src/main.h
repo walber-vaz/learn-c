@@ -1,8 +1,12 @@
 #ifndef MAIN_H
 #define MAIN_H
 
-int fatorial(int n);
-
-int fibonacci(int n);
+enum Logs
+{
+    SUCCESS = 0,
+    ERROR = 1,
+    INFO = 241,
+    WARNING = 130,
+};
 
 #endif
