@@ -2,23 +2,31 @@
 
 #include <stdio.h>
 
-int double_number(int *num)
+Cadastro obter_cadastro(Cadastro *c)
 {
-    return (*num) * 2;
+    printf("Digite o nome: ");
+    fgets(c->name, 150, stdin);
+    fflush(stdin);
+
+    printf("Digite a idade e nível: ");
+    scanf("%d %c", &c->age, &c->level);
+
+    return *c;
 }
 
-int main(int argc, char **argv)
+void print_cadastro(Cadastro *c)
 {
-    if (argc != 2)
-    {
-        printf("Usage: %s <number>\n", argv[0]);
-        return 1;
-    }
+    printf("Name: %s\n", c->name);
+    printf("Age: %d\n", c->age);
+    printf("Level: %c\n", c->level);
+}
 
-    for (int i = 0; i < argc; i++)
-    {
-        printf("argv[%d]: %s\n", i, argv[i]);
-    }
+int main(void)
+{
+    Cadastro c;
+
+    obter_cadastro(&c);
+    print_cadastro(&c);
 
     return 0;
 }
